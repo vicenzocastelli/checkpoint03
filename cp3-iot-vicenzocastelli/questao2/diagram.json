@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Arnaldo Alves Viana Junior",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -33.7, "left": 340.6, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -35.7, "left": 141.4, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -45.6,
+      "left": 472.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 34.8,
+      "left": 522.2,
+      "attrs": { "color": "orange" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 28.8,
+      "left": 144,
+      "attrs": { "text": "sensor de gás" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -19.2,
+      "left": 547.2,
+      "attrs": { "text": "buzzer" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 38.4,
+      "left": 556.8,
+      "attrs": { "text": "led" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "r3:1", "led4:A", "green", [ "v0" ] ],
+    [ "led4:C", "esp:GND.1", "green", [ "v138.64", "h-88.39", "v102.35", "h600.84", "v-182.05" ] ],
+    [ "r3:2", "esp:D2", "green", [ "v99.14", "h278.51", "v-37.5" ] ],
+    [ "gas1:GND", "esp:GND.2", "black", [ "h38.4", "v114.4" ] ],
+    [ "gas1:DOUT", "esp:D13", "blue", [ "h48", "v114.9" ] ],
+    [ "gas1:VCC", "esp:3V3", "red", [ "h28.8", "v162.3", "h144", "v-48" ] ],
+    [ "esp:D18", "bz1:2", "green", [ "h57.3", "v0", "h29.2" ] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "h0" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h0" ] ],
+    [ "led1:A", "esp:D2", "orange", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
